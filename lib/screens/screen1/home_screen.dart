@@ -1,39 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:travel_ui/constants.dart';
 import 'package:travel_ui/helpers/size_config/size_config.dart';
+import 'package:travel_ui/screens/components/app_bar.dart';
 
 import 'components/body.dart';
+import 'components/bottom_nav_bar.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///call init function to maintain the size
-    
+
     ScreenSize().init(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: buildAppBar(),
+      appBar: buildAppBar(isTranparent: true),
       body: Body(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.menu,
-          color: kIconColor,
-        ),
-      ),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: ClipOval(child: Image.asset('assets/images/profile.png')),
-        )
-      ],
+      bottomNavigationBar: BtmNavBar(),
     );
   }
 }
